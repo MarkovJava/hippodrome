@@ -69,4 +69,16 @@ public class HippodromeTest {
         horsesMock.forEach(mockedHorse -> Mockito.verify(mockedHorse).move());
     }
 
+    @Test
+    void getWinnerTest() {
+        Horse expected = new Horse("Sugar", 4.0, 8);
+        Horse secondHorse = new Horse("Bumblebee", 2.5, 6);
+        Horse thirdHorse = new Horse("Princess", 3.0, 4.5);
+        List<Horse> horses = new ArrayList<>();
+        horses.add(expected);
+        horses.add(secondHorse);
+        horses.add(thirdHorse);
+        Hippodrome hippodrome = new Hippodrome(horses);
+        assertSame(expected, hippodrome.getWinner());
+    }
 }
